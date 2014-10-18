@@ -15,6 +15,11 @@
 		F0A45FD819E76B3800C6E607 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0A45FD719E76B3800C6E607 /* Images.xcassets */; };
 		F0A45FE719E76B3800C6E607 /* imageCutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A45FE619E76B3800C6E607 /* imageCutTests.m */; };
 		F0A45FF119E76D5B00C6E607 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0A45FF019E76D5B00C6E607 /* MobileCoreServices.framework */; };
+		F0CF78A319F10B6800069E79 /* ALCutCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F0CF78A119F10B6800069E79 /* ALCutCollectionViewCell.m */; };
+		F0CF78A419F10B6800069E79 /* ALCutCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0CF78A219F10B6800069E79 /* ALCutCollectionViewCell.xib */; };
+		F0CF78AD19F10C2400069E79 /* ALPlatformCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F0CF78AB19F10C2400069E79 /* ALPlatformCollectionViewCell.m */; };
+		F0CF78AE19F10C2400069E79 /* ALPlatformCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0CF78AC19F10C2400069E79 /* ALPlatformCollectionViewCell.xib */; };
+		F0CF78B119F10FDD00069E79 /* ALTools.m in Sources */ = {isa = PBXBuildFile; fileRef = F0CF78B019F10FDD00069E79 /* ALTools.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +48,15 @@
 		F0A45FE519E76B3800C6E607 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F0A45FE619E76B3800C6E607 /* imageCutTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = imageCutTests.m; sourceTree = "<group>"; };
 		F0A45FF019E76D5B00C6E607 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		F0CF78A019F10B6800069E79 /* ALCutCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALCutCollectionViewCell.h; sourceTree = "<group>"; };
+		F0CF78A119F10B6800069E79 /* ALCutCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALCutCollectionViewCell.m; sourceTree = "<group>"; };
+		F0CF78A219F10B6800069E79 /* ALCutCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALCutCollectionViewCell.xib; sourceTree = "<group>"; };
+		F0CF78AA19F10C2400069E79 /* ALPlatformCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPlatformCollectionViewCell.h; sourceTree = "<group>"; };
+		F0CF78AB19F10C2400069E79 /* ALPlatformCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALPlatformCollectionViewCell.m; sourceTree = "<group>"; };
+		F0CF78AC19F10C2400069E79 /* ALPlatformCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALPlatformCollectionViewCell.xib; sourceTree = "<group>"; };
+		F0CF78AF19F10FDD00069E79 /* ALTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALTools.h; sourceTree = "<group>"; };
+		F0CF78B019F10FDD00069E79 /* ALTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALTools.m; sourceTree = "<group>"; };
+		F0CF78B219F1103700069E79 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,8 +81,16 @@
 		F02637B519E9247600626AF9 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				F0CF78A019F10B6800069E79 /* ALCutCollectionViewCell.h */,
+				F0CF78A119F10B6800069E79 /* ALCutCollectionViewCell.m */,
+				F0CF78A219F10B6800069E79 /* ALCutCollectionViewCell.xib */,
 				F02637B619E9257800626AF9 /* ALImageCutManager.h */,
 				F02637B719E9257800626AF9 /* ALImageCutManager.m */,
+				F0CF78AA19F10C2400069E79 /* ALPlatformCollectionViewCell.h */,
+				F0CF78AB19F10C2400069E79 /* ALPlatformCollectionViewCell.m */,
+				F0CF78AC19F10C2400069E79 /* ALPlatformCollectionViewCell.xib */,
+				F0CF78AF19F10FDD00069E79 /* ALTools.h */,
+				F0CF78B019F10FDD00069E79 /* ALTools.m */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -103,6 +125,7 @@
 				F0A45FD419E76B3800C6E607 /* Main.storyboard */,
 				F0A45FD719E76B3800C6E607 /* Images.xcassets */,
 				F0A45FCA19E76B3800C6E607 /* Supporting Files */,
+				F0CF78B219F1103700069E79 /* PrefixHeader.pch */,
 			);
 			path = imageCut;
 			sourceTree = "<group>";
@@ -213,6 +236,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0CF78AE19F10C2400069E79 /* ALPlatformCollectionViewCell.xib in Resources */,
+				F0CF78A419F10B6800069E79 /* ALCutCollectionViewCell.xib in Resources */,
 				F0A45FD619E76B3800C6E607 /* Main.storyboard in Resources */,
 				F0A45FD819E76B3800C6E607 /* Images.xcassets in Resources */,
 			);
@@ -232,7 +257,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0CF78B119F10FDD00069E79 /* ALTools.m in Sources */,
 				F0A45FD319E76B3800C6E607 /* ViewController.m in Sources */,
+				F0CF78A319F10B6800069E79 /* ALCutCollectionViewCell.m in Sources */,
+				F0CF78AD19F10C2400069E79 /* ALPlatformCollectionViewCell.m in Sources */,
 				F02637B819E9257800626AF9 /* ALImageCutManager.m in Sources */,
 				F0A45FD019E76B3800C6E607 /* AppDelegate.m in Sources */,
 				F0A45FCD19E76B3800C6E607 /* main.m in Sources */,
@@ -355,6 +383,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "3b489d28-cfd5-420e-af72-8a1451885d1e";
+				VALIDATE_PRODUCT = NO;
 			};
 			name = Debug;
 		};
@@ -368,6 +397,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "3b489d28-cfd5-420e-af72-8a1451885d1e";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};

@@ -10,9 +10,9 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "ALImageCutManager.h"
 
-@interface ViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface ViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property(nonatomic, strong) ALImageCutManager *imageCutManager;
-@property(nonatomic, strong) UITableView *tableView;
+@property(nonatomic, strong) UICollectionView *colloctionView;
 @end
 
 @implementation ViewController
@@ -21,6 +21,7 @@
     [super viewDidLoad];
     self.imageCutManager = [[ALImageCutManager alloc] init];
     // Do any additional setup after loading the view, typically from a nib.
+//    self.colloctionView
     
 }
 
@@ -50,37 +51,6 @@
 }
 
 
-
-#pragma mark - tableview data
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 0;
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    return nil;
-}
-
-#pragma mark - tableview delegate
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 0;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 35;
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 35)];
-    view.backgroundColor = [UIColor clearColor];
-    UIImageView *iconImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Logo"]];
-    iconImageView.center = CGPointMake((view.bounds.size.width-iconImageView.bounds.size.width)/2.0, (view.bounds.size.height-iconImageView.bounds.size.height)/2.0);
-    [view addSubview:iconImageView];
-    return view;
-}
 
 
 
