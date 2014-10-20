@@ -9,7 +9,7 @@
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LE2-od-F5S"/>
                         <viewControllerLayoutGuide type="bottom" id="fnc-1v-wKj"/>
@@ -37,6 +37,10 @@
                                         </view>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="dqD-Rz-bNO"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="1Py-my-Poh"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -47,6 +51,9 @@
                             <constraint firstItem="0AH-ST-z2Y" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="Hym-Ee-HnP"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="0AH-ST-z2Y" id="ewE-w6-K6C"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>

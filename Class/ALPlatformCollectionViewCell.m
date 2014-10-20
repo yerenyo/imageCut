@@ -7,6 +7,12 @@
 //
 
 #import "ALPlatformCollectionViewCell.h"
+@interface ALPlatformCollectionViewCell()
+@property (weak, nonatomic) IBOutlet UIImageView *cutTypeImageview;
+@property (weak, nonatomic) IBOutlet UILabel *cutTypeLable;
+
+@end
+
 
 @implementation ALPlatformCollectionViewCell
 

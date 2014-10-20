@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "ALTools.h"
 
 @interface ALImageCutManager : NSObject
 @property(nonatomic, assign) BOOL enableSaveToAlbum;//默认是YES

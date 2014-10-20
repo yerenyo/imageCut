@@ -15,6 +15,11 @@ typedef enum{
     kImageCutTwo=2
 }kImageCutType;
 
+typedef enum{
+    kPlatformWeixin=0,
+    kPlatformWeibo,
+    kPlatformMomo,
+}kPlatformType;
 
 @interface ALTools : NSObject
 

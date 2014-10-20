@@ -9,10 +9,13 @@
 #import "ViewController.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "ALImageCutManager.h"
+#import "ALTools.h"
+#import "ALCutCollectionViewCell.h"
 
-@interface ViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface ViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 @property(nonatomic, strong) ALImageCutManager *imageCutManager;
-@property(nonatomic, strong) UICollectionView *colloctionView;
+@property(weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property(nonatomic, strong) NSArray *dataArray;
 @end
 
 @implementation ViewController
@@ -21,7 +24,7 @@
     [super viewDidLoad];
     self.imageCutManager = [[ALImageCutManager alloc] init];
     // Do any additional setup after loading the view, typically from a nib.
-//    self.colloctionView
+//    self.dataArray = @[keyPlatform:];
     
 }
 
@@ -51,7 +54,14 @@
 }
 
 
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    
+}
 
+// The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
 
 
 

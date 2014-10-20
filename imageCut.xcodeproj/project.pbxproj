@@ -56,7 +56,6 @@
 		F0CF78AC19F10C2400069E79 /* ALPlatformCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALPlatformCollectionViewCell.xib; sourceTree = "<group>"; };
 		F0CF78AF19F10FDD00069E79 /* ALTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALTools.h; sourceTree = "<group>"; };
 		F0CF78B019F10FDD00069E79 /* ALTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALTools.m; sourceTree = "<group>"; };
-		F0CF78B219F1103700069E79 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,7 +124,6 @@
 				F0A45FD419E76B3800C6E607 /* Main.storyboard */,
 				F0A45FD719E76B3800C6E607 /* Images.xcassets */,
 				F0A45FCA19E76B3800C6E607 /* Supporting Files */,
-				F0CF78B219F1103700069E79 /* PrefixHeader.pch */,
 			);
 			path = imageCut;
 			sourceTree = "<group>";

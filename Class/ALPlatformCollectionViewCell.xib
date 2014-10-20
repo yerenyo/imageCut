@@ -8,12 +8,50 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ALPlatformCollectionViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <rect key="frame" x="0.0" y="0.0" width="102" height="150"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <rect key="frame" x="0.0" y="0.0" width="102" height="150"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gld-RJ-Boi">
+                        <rect key="frame" x="0.0" y="0.0" width="1" height="120"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.29999999999999999" colorSpace="calibratedWhite"/>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="3×3张" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6CE-Ws-s8A">
+                        <rect key="frame" x="23" y="106" width="55" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="w-9" translatesAutoresizingMaskIntoConstraints="NO" id="UOD-Yc-5Lt">
+                        <rect key="frame" x="0.0" y="0.0" width="102" height="101"/>
+                    </imageView>
+                </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
+            <constraints>
+                <constraint firstItem="6CE-Ws-s8A" firstAttribute="top" secondItem="UOD-Yc-5Lt" secondAttribute="bottom" constant="5" id="2qA-pK-Gle"/>
+                <constraint firstItem="6CE-Ws-s8A" firstAttribute="leading" secondItem="gld-RJ-Boi" secondAttribute="trailing" constant="22" id="5q5-1v-nG4"/>
+                <constraint firstItem="6CE-Ws-s8A" firstAttribute="top" secondItem="UOD-Yc-5Lt" secondAttribute="bottom" constant="5" id="9q1-YL-NRI"/>
+                <constraint firstAttribute="bottom" secondItem="gld-RJ-Boi" secondAttribute="bottom" constant="30" id="AHC-Gy-tlM"/>
+                <constraint firstAttribute="trailing" secondItem="gld-RJ-Boi" secondAttribute="trailing" constant="101" id="Dl0-Ei-YjK"/>
+                <constraint firstAttribute="trailing" secondItem="UOD-Yc-5Lt" secondAttribute="trailing" id="dy8-YO-TbT"/>
+                <constraint firstAttribute="trailing" secondItem="6CE-Ws-s8A" secondAttribute="trailing" constant="24" id="eVI-M0-cPp"/>
+                <constraint firstItem="gld-RJ-Boi" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="kXb-pA-0zP"/>
+                <constraint firstAttribute="bottom" secondItem="6CE-Ws-s8A" secondAttribute="bottom" constant="23" id="rDg-sA-ACf"/>
+                <constraint firstItem="UOD-Yc-5Lt" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ryn-Iw-241"/>
+                <constraint firstItem="UOD-Yc-5Lt" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="sqS-tN-V5H"/>
+                <constraint firstItem="gld-RJ-Boi" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="y5a-ze-uA5"/>
+            </constraints>
+            <size key="customSize" width="134" height="137"/>
+            <connections>
+                <outlet property="cutTypeImageview" destination="UOD-Yc-5Lt" id="zd1-Sc-2dZ"/>
+                <outlet property="cutTypeLable" destination="6CE-Ws-s8A" id="0ZU-hn-Ndp"/>
+            </connections>
+            <point key="canvasLocation" x="182" y="197"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="w-9" width="48" height="48"/>
+    </resources>
 </document>

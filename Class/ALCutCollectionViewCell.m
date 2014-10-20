@@ -12,6 +12,8 @@ const NSString *keyCutType = @"cutType";
 
 @interface ALCutCollectionViewCell()<UICollectionViewDataSource, UICollectionViewDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *cellectionView;
+@property (weak, nonatomic) IBOutlet UIImageView *platformImageView;
+@property (weak, nonatomic) IBOutlet UILabel *platformLable;
 
 @end
 
@@ -25,12 +27,12 @@ const NSString *keyCutType = @"cutType";
 
 #pragma mark = datasource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    
+    return 0;
 }
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    
+    return nil;
 }
 
 #pragma mark = delegate
