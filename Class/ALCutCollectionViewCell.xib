@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <objects>
@@ -14,14 +15,15 @@
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="yB7-Ul-69Q">
                         <rect key="frame" x="0.0" y="30" width="320" height="150"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Wrx-WM-r0f">
-                            <size key="itemSize" width="50" height="50"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Wrx-WM-r0f">
+                            <size key="itemSize" width="102" height="150"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                     </collectionView>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2lN-CK-6ul">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2lN-CK-6ul">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fe4-Sz-o9s">
@@ -34,16 +36,21 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="yB7-Ul-69Q" firstAttribute="top" secondItem="2lN-CK-6ul" secondAttribute="bottom" id="7eb-RC-ReL"/>
+                <constraint firstItem="2lN-CK-6ul" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="TdS-V2-X7J"/>
                 <constraint firstAttribute="bottom" secondItem="yB7-Ul-69Q" secondAttribute="bottom" id="Zvo-Dw-Yuq"/>
+                <constraint firstAttribute="trailing" secondItem="2lN-CK-6ul" secondAttribute="trailing" id="aP2-Xr-DeZ"/>
                 <constraint firstItem="yB7-Ul-69Q" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="30" id="cXC-Os-w1j"/>
                 <constraint firstItem="yB7-Ul-69Q" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="qBD-cW-CPe"/>
                 <constraint firstAttribute="trailing" secondItem="yB7-Ul-69Q" secondAttribute="trailing" id="tiM-um-WEq"/>
+                <constraint firstItem="2lN-CK-6ul" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="yeQ-fg-8Qe"/>
             </constraints>
             <size key="customSize" width="292" height="164"/>
             <connections>

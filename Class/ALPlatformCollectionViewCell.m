@@ -24,8 +24,10 @@
 - (void)platfom:(kPlatformType)type cutType:(kImageCutType)cutType{
     _platformType = type;
     _cutType = cutType;
-    self.cutTypeImageview.image = [UIImage imageNamed:kCutPlatormImage[type][cutType]];
-    self.cutTypeLable.text = kCutPlatormText[type][cutType];
+    NSArray *cutNumbers = kCutNumber[type];
+//    NSInteger index = [cutNumbers indexOfObject:@(9)];
+    self.cutTypeImageview.image = [UIImage imageNamed:kCutPlatormImage[type][0]];
+    self.cutTypeLable.text = kCutPlatormText[type][0];
 }
 
 @end

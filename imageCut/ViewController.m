@@ -22,9 +22,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    [self.collectionView registerClass:[ALCutCollectionViewCell class] forCellWithReuseIdentifier:@"ALCutCollectionViewCell"];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"ALCutCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"ALCutCollectionViewCell"];
     self.imageCutManager = [[ALImageCutManager alloc] init];
     // Do any additional setup after loading the view, typically from a nib.
     self.dataArray = kPlatormCutTypes;
+    self.collectionView.dataSource = self;
+    self.collectionView.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,7 +55,6 @@
         
     }
 }
-
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return self.dataArray.count;

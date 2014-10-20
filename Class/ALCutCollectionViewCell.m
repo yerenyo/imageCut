@@ -10,7 +10,6 @@
 #import "ALPlatformCollectionViewCell.h"
 const NSString *keyPlatform = @"platform";
 const NSString *keyCutType = @"cutType";
-const NSString *keyPlatformLogo = @"PlatformLogo";
 
 @interface ALCutCollectionViewCell()<UICollectionViewDataSource, UICollectionViewDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *cellectionView;
@@ -23,7 +22,7 @@ const NSString *keyPlatformLogo = @"PlatformLogo";
 
 - (void)awakeFromNib {
     // Initialization code
-    [self.cellectionView registerClass:[ALPlatformCollectionViewCell class] forCellWithReuseIdentifier:@"ALPlatformCollectionViewCell"];
+    [self.cellectionView registerNib:[UINib nibWithNibName:@"ALPlatformCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"ALPlatformCollectionViewCell"];
     self.cellectionView.dataSource = self;
     self.cellectionView.delegate = self;
     
@@ -31,7 +30,11 @@ const NSString *keyPlatformLogo = @"PlatformLogo";
 
 - (void)setCutDataDictionary:(NSDictionary *)cutDataDictionary{
     if (_cutDataDictionary != cutDataDictionary) {
-        
+        _cutDataDictionary = cutDataDictionary;
+        NSInteger platform = [_cutDataDictionary[keyPlatform] integerValue];
+        self.platformImageView.image = [UIImage imageNamed: kPlatormLogoImageName[platform]];
+        self.platformLable.text = kPlatormName[platform];
+        [self.cellectionView reloadData];
     }
 }
 #pragma mark = datasource
@@ -45,8 +48,7 @@ const NSString *keyPlatformLogo = @"PlatformLogo";
     static NSString *cellId = @"ALPlatformCollectionViewCell";
     ALPlatformCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
     NSArray *cutTypes = self.cutDataDictionary[keyCutType];
-    NSArray *platformTypes = self.cutDataDictionary[keyPlatform];
-    [cell platfom:(kPlatformType)[platformTypes[indexPath.row] integerValue] cutType:(kImageCutType)[cutTypes[indexPath.row] integerValue]];
+    [cell platfom:(kPlatformType)[self.cutDataDictionary[keyPlatform] integerValue] cutType:(kImageCutType)[cutTypes[indexPath.row] integerValue]];
     return cell;
 }
 
@@ -55,8 +57,7 @@ const NSString *keyPlatformLogo = @"PlatformLogo";
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     if (self.SelectCellBlock) {
         NSArray *cutTypes = self.cutDataDictionary[keyCutType];
-        NSArray *platformTypes = self.cutDataDictionary[keyPlatform];
-        self.SelectCellBlock((kImageCutType)[cutTypes[indexPath.row] integerValue], (kPlatformType)[platformTypes[indexPath.row] integerValue]);
+        self.SelectCellBlock((kImageCutType)[cutTypes[indexPath.row] integerValue], (kPlatformType)[self.cutDataDictionary[keyPlatform] integerValue]);
     }
 }
 

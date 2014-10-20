@@ -11,7 +11,6 @@
 
 extern NSString *keyPlatform;
 extern NSString *keyCutType;
-extern NSString *keyPlatformLogo;
 
 @interface ALCutCollectionViewCell : UICollectionViewCell
 //@{keyPlatform:平台类型, keyCutType:切图类型}
