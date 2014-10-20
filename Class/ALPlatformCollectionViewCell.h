@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ALTools.h"
 
 @interface ALPlatformCollectionViewCell : UICollectionViewCell
 
+@property(nonatomic, assign, readonly)kImageCutType cutType;
+@property(nonatomic, assign, readonly)kPlatformType platformType;
+
+- (void)platfom:(kPlatformType)type cutType:(kImageCutType)cutType;
 @end
