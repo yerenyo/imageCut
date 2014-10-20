@@ -7,6 +7,7 @@
 //
 
 #import "ALCutCollectionViewCell.h"
+#import "ALPlatformCollectionViewCell.h"
 const NSString *keyPlatform = @"platform";
 const NSString *keyCutType = @"cutType";
 
@@ -21,23 +22,36 @@ const NSString *keyCutType = @"cutType";
 
 - (void)awakeFromNib {
     // Initialization code
+    [self.cellectionView registerClass:[ALPlatformCollectionViewCell class] forCellWithReuseIdentifier:@"ALPlatformCollectionViewCell"];
     self.cellectionView.dataSource = self;
     self.cellectionView.delegate = self;
+    
 }
 
 #pragma mark = datasource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 0;
+    NSArray *cutTypes = self.cutDataDictionary[keyCutType];
+    return cutTypes.count;
 }
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return nil;
+    static NSString *cellId = @"ALPlatformCollectionViewCell";
+    ALPlatformCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
+    NSArray *cutTypes = self.cutDataDictionary[keyCutType];
+    NSArray *platformTypes = self.cutDataDictionary[keyPlatform];
+    [cell platfom:(kPlatformType)[platformTypes[indexPath.row] integerValue] cutType:(kImageCutType)[cutTypes[indexPath.row] integerValue]];
+    return cell;
 }
 
 #pragma mark = delegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    if (self.SelectCellBlock) {
+        NSArray *cutTypes = self.cutDataDictionary[keyCutType];
+        NSArray *platformTypes = self.cutDataDictionary[keyPlatform];
+        self.SelectCellBlock((kImageCutType)[cutTypes[indexPath.row] integerValue], (kPlatformType)[platformTypes[indexPath.row] integerValue]);
+    }
 }
 
 

@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 typedef enum{
-    kImageCutNine=9,
-    kImageCutSix=6,
-    kImageCutFour=4,
-    kImageCutThree=3,
-    kImageCutTwo=2
+    kImageCutNine=0,
+    kImageCutSix,
+    kImageCutFour,
+    kImageCutThree,
+    kImageCutTwo
 }kImageCutType;
 
 typedef enum{
@@ -20,6 +20,13 @@ typedef enum{
     kPlatformWeibo,
     kPlatformMomo,
 }kPlatformType;
+
+
+#define kPlatormLogoImageName @[@"", @"", @""]
+#define kCutPlatormImage @[@[@"",@""],@[@"",@""],@[@"",@""]]
+#define kCutPlatormText @[@[@"",@""],@[@"",@""],@[@"",@""]]
+#define kCutNumber @[@"9", @"6", @"4", @"3", @"2"]
+#define kPlatormCutTypes @[@[@(kImageCutNine),@(kImageCutSix),@(kImageCutFour),@(kImageCutThree),@(kImageCutTwo)],@[@(kImageCutNine),@(kImageCutSix),@(kImageCutFour),@(kImageCutThree),@(kImageCutTwo)],@[@(kImageCutNine),@(kImageCutSix),@(kImageCutFour),@(kImageCutThree),@(kImageCutTwo)]]
 
 @interface ALTools : NSObject
 

@@ -24,8 +24,7 @@
     [super viewDidLoad];
     self.imageCutManager = [[ALImageCutManager alloc] init];
     // Do any additional setup after loading the view, typically from a nib.
-//    self.dataArray = @[keyPlatform:];
-    
+    self.dataArray = kPlatormCutTypes;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,12 +54,18 @@
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    
+    return self.dataArray.count;
 }
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    
+    static NSString *cellId = @"ALCutCollectionViewCell";
+    ALCutCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
+    cell.cutDataDictionary = @{keyPlatform:@(indexPath.row), keyCutType:self.dataArray[indexPath.row]};
+    [cell setSelectCellBlock:^(kImageCutType cutType, kPlatformType platformType) {
+        
+    }];
+    return cell;
 }
 
 
