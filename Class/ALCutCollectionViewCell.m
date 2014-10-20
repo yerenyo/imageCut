@@ -26,6 +26,7 @@ const NSString *keyPlatformLogo = @"PlatformLogo";
     [self.cellectionView registerClass:[ALPlatformCollectionViewCell class] forCellWithReuseIdentifier:@"ALPlatformCollectionViewCell"];
     self.cellectionView.dataSource = self;
     self.cellectionView.delegate = self;
+    
 }
 
 - (void)setCutDataDictionary:(NSDictionary *)cutDataDictionary{
