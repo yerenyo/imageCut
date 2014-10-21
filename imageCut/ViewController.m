@@ -12,17 +12,18 @@
 #import "ALTools.h"
 #import "ALCutCollectionViewCell.h"
 
-@interface ViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
+@interface ViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UIActionSheetDelegate>
 @property(nonatomic, strong) ALImageCutManager *imageCutManager;
 @property(weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property(nonatomic, strong) NSArray *dataArray;
+@property(nonatomic, strong) ALCutObject *selectCutObject;
+@property(nonatomic, strong) ALPlatormObject *selectPlatormObject;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self.collectionView registerClass:[ALCutCollectionViewCell class] forCellWithReuseIdentifier:@"ALCutCollectionViewCell"];
     [self.collectionView registerNib:[UINib nibWithNibName:@"ALCutCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"ALCutCollectionViewCell"];
     self.imageCutManager = [[ALImageCutManager alloc] init];
     // Do any additional setup after loading the view, typically from a nib.
@@ -56,6 +57,20 @@
     }
 }
 
+- (void)actionSelect:(NSUInteger)index{
+    UIImagePickerControllerSourceType type;
+    if (index==1) {
+        type = UIImagePickerControllerSourceTypeCamera;
+    }else{
+        type = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+    imagePickerController.delegate = self;
+    imagePickerController.sourceType = type;
+    imagePickerController.allowsEditing = YES;
+    [self presentViewController:imagePickerController animated:YES completion:nil];
+}
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return self.dataArray.count;
 }
@@ -65,12 +80,28 @@
     static NSString *cellId = @"ALCutCollectionViewCell";
     ALCutCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
     cell.platormObject = self.dataArray[indexPath.row];
+    __weak ViewController *weakSelf = self;
     [cell setSelectCellBlock:^(ALPlatormObject *platormObject, ALCutObject *cutObject) {
-        
+        weakSelf.selectCutObject = cutObject;
+        weakSelf.selectPlatormObject = platormObject;
+        UIActionSheet *sexSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照", @"从相册选择", nil];
+        [sexSheet showInView:weakSelf.view];
     }];
     return cell;
 }
 
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    switch (buttonIndex) {
+        case 0:{
+        
+        }break;
+        case 1:{
+            
+        }break;
+        default:
+            break;
+    }
+}
 
 
 #pragma mark - UIImagePickerControllerDelegate method
