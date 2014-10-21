@@ -9,11 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ALTools.h"
 
-extern NSString *keyPlatform;
-extern NSString *keyCutType;
-
 @interface ALCutCollectionViewCell : UICollectionViewCell
-//@{keyPlatform:平台类型, keyCutType:切图类型}
-@property(nonatomic, strong) NSDictionary *cutDataDictionary;
-@property(nonatomic, copy) void(^SelectCellBlock)(kImageCutType cutType, kPlatformType platformType);
+@property(nonatomic, strong) ALPlatormObject *platormObject;
+@property(nonatomic, copy) void(^SelectCellBlock)(ALPlatormObject *platormObject, ALCutObject *cutObject);
 @end

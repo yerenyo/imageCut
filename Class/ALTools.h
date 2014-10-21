@@ -23,15 +23,23 @@ typedef enum{
 }kPlatformType;
 
 
-#define kPlatormLogoImageName @[@"Wechat", @"Momo", @"Weibo"]
-#define kPlatormName @[@"朋友圈", @"陌陌相册", @"微博"]
-#define kCutPlatormImage @[@[@"w-9",@"w-6",@"w-4",@"w-3",@"w-2"],@[@"m-8",@"m-4"],@[@"w-9",@"w-6",@"w-4",@"w-3",@"w-2"]]
-#define kCutPlatormText @[@[@"3×3张",@"3×2张",@"2×2张",@"3×1张",@"2×1张"],@[@"4×2张",@"4×1张"],@[@"3×3张",@"3×2张",@"2×2张",@"3×1张",@"2×1张"]]
 
-#define kCutNumber @[@[@"9",@"6",@"4",@"3",@"2"],@[@"8",@"4"],@[@"9",@"6",@"4",@"3",@"2"]]
 
-#define kPlatormCutTypes @[@[@(kImageCutNine),@(kImageCutSix),@(kImageCutFour),@(kImageCutThree),@(kImageCutTwo)],@[@(kImageCutEight),@(kImageCutFour)],@[@(0),@(kImageCutSix),@(kImageCutFour),@(kImageCutThree),@(kImageCutTwo)]]
+@interface ALCutObject : NSObject
+@property(nonatomic, assign) kImageCutType cutType;
+@property(nonatomic, strong) NSString *cutPlatormImageName;
+@property(nonatomic, strong) NSString *cutPlatormText;
+@property(nonatomic, assign) NSUInteger cutNumber;
+@end
+
+@interface ALPlatormObject : NSObject
+@property(nonatomic, assign) kPlatformType platformType;
+@property(nonatomic, strong) NSString *platormLogoImageName;
+@property(nonatomic, strong) NSString *platormName;
+@property(nonatomic, strong) NSArray *cutObjects;
+@end
+
 
 @interface ALTools : NSObject
-
++ (NSArray *)platormsCreate;
 @end

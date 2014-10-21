@@ -26,7 +26,7 @@
     [self.collectionView registerNib:[UINib nibWithNibName:@"ALCutCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"ALCutCollectionViewCell"];
     self.imageCutManager = [[ALImageCutManager alloc] init];
     // Do any additional setup after loading the view, typically from a nib.
-    self.dataArray = kPlatormCutTypes;
+    self.dataArray = [ALTools platormsCreate];
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
 }
@@ -64,8 +64,8 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *cellId = @"ALCutCollectionViewCell";
     ALCutCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
-    cell.cutDataDictionary = @{keyPlatform:@(indexPath.row), keyCutType:self.dataArray[indexPath.row]};
-    [cell setSelectCellBlock:^(kImageCutType cutType, kPlatformType platformType) {
+    cell.platormObject = self.dataArray[indexPath.row];
+    [cell setSelectCellBlock:^(ALPlatormObject *platormObject, ALCutObject *cutObject) {
         
     }];
     return cell;

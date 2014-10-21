@@ -21,13 +21,11 @@
     self.contentView.layer.masksToBounds = YES;
 }
 
-- (void)platfom:(kPlatformType)type cutType:(kImageCutType)cutType{
-    _platformType = type;
-    _cutType = cutType;
-    NSArray *cutNumbers = kCutNumber[type];
-//    NSInteger index = [cutNumbers indexOfObject:@(9)];
-    self.cutTypeImageview.image = [UIImage imageNamed:kCutPlatormImage[type][0]];
-    self.cutTypeLable.text = kCutPlatormText[type][0];
+- (void)setCutObject:(ALCutObject *)cutObject{
+    if (_cutObject != cutObject) {
+        _cutObject = cutObject;
+        self.cutTypeImageview.image = [UIImage imageNamed:cutObject.cutPlatormImageName];
+        self.cutTypeLable.text = cutObject.cutPlatormText;
+    }
 }
-
 @end

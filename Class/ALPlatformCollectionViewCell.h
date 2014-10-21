@@ -11,8 +11,6 @@
 
 @interface ALPlatformCollectionViewCell : UICollectionViewCell
 
-@property(nonatomic, assign, readonly)kImageCutType cutType;
-@property(nonatomic, assign, readonly)kPlatformType platformType;
+@property(nonatomic, strong) ALCutObject *cutObject;
 
-- (void)platfom:(kPlatformType)type cutType:(kImageCutType)cutType;
 @end

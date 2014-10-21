@@ -28,27 +28,25 @@ const NSString *keyCutType = @"cutType";
     
 }
 
-- (void)setCutDataDictionary:(NSDictionary *)cutDataDictionary{
-    if (_cutDataDictionary != cutDataDictionary) {
-        _cutDataDictionary = cutDataDictionary;
-        NSInteger platform = [_cutDataDictionary[keyPlatform] integerValue];
-        self.platformImageView.image = [UIImage imageNamed: kPlatormLogoImageName[platform]];
-        self.platformLable.text = kPlatormName[platform];
+- (void)setPlatormObject:(ALPlatormObject *)platormObject{
+    if (_platormObject != platormObject) {
+        _platormObject = platormObject;
+        self.platformImageView.image = [UIImage imageNamed:platormObject.platormLogoImageName];
+        self.platformLable.text = platormObject.platormName;
         [self.cellectionView reloadData];
     }
 }
+
 #pragma mark = datasource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    NSArray *cutTypes = self.cutDataDictionary[keyCutType];
-    return cutTypes.count;
+    return self.platormObject.cutObjects.count;
 }
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *cellId = @"ALPlatformCollectionViewCell";
     ALPlatformCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
-    NSArray *cutTypes = self.cutDataDictionary[keyCutType];
-    [cell platfom:(kPlatformType)[self.cutDataDictionary[keyPlatform] integerValue] cutType:(kImageCutType)[cutTypes[indexPath.row] integerValue]];
+    cell.cutObject = self.platormObject.cutObjects[indexPath.row];
     return cell;
 }
 
@@ -56,8 +54,7 @@ const NSString *keyCutType = @"cutType";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     if (self.SelectCellBlock) {
-        NSArray *cutTypes = self.cutDataDictionary[keyCutType];
-        self.SelectCellBlock((kImageCutType)[cutTypes[indexPath.row] integerValue], (kPlatformType)[self.cutDataDictionary[keyPlatform] integerValue]);
+        self.SelectCellBlock(self.platormObject, self.platormObject.cutObjects[indexPath.row]);
     }
 }
 
