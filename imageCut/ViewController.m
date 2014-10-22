@@ -11,6 +11,7 @@
 #import "ALImageCutManager.h"
 #import "ALTools.h"
 #import "ALCutCollectionViewCell.h"
+#import "MBProgressHUD+Utility.h"
 
 @interface ViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UIActionSheetDelegate>
 @property(nonatomic, strong) ALImageCutManager *imageCutManager;
@@ -30,6 +31,24 @@
     self.dataArray = [ALTools platormsCreate];
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
+    self.imageCutManager.progressBlcok = ^(kImageCutStatus status, NSInteger allCount, NSInteger currentIndex){
+        switch (status) {
+            case kImageCutBegin:{
+                [MBProgressHUD showLoading:@"图片开始分割"];
+            }break;
+            case kImageCutCutSuccess:{
+                [MBProgressHUD showLoading:@"图片分割成功"];
+            }break;
+            case kImageCutSave:{
+                [MBProgressHUD showLoading:[NSString stringWithFormat:@"图片保存到相册中--%ld/%ld", currentIndex, allCount]];
+            }break;
+            case kImageCutSuccess:{
+                [MBProgressHUD showLoading:@"保存完成"];
+            }break;
+            default:
+                break;
+        }
+    };
 }
 
 - (void)didReceiveMemoryWarning {
@@ -59,7 +78,7 @@
 
 - (void)actionSelect:(NSUInteger)index{
     UIImagePickerControllerSourceType type;
-    if (index==1) {
+    if (index==0) {
         type = UIImagePickerControllerSourceTypeCamera;
     }else{
         type = UIImagePickerControllerSourceTypePhotoLibrary;
@@ -92,11 +111,9 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     switch (buttonIndex) {
-        case 0:{
-        
-        }break;
+        case 0:
         case 1:{
-            
+            [self actionSelect:buttonIndex];
         }break;
         default:
             break;
@@ -116,7 +133,7 @@
         }
         NSData *imageData = UIImageJPEGRepresentation(img, 1.0);
         UIImage *image = [UIImage imageWithData:imageData scale:1.0];
-        [self.imageCutManager cut:image with:kImageCutNine];
+        [self.imageCutManager cut:image Type:self.selectCutObject.cutType Platform:self.selectPlatormObject.platformType];
     }
     [picker dismissViewControllerAnimated:YES completion:nil];
 }

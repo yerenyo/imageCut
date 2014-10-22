@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		F02637B819E9257800626AF9 /* ALImageCutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F02637B719E9257800626AF9 /* ALImageCutManager.m */; };
+		F03CEFA319F75F990071E7B3 /* MBProgressHUD+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = F03CEFA019F75F990071E7B3 /* MBProgressHUD+Utility.m */; };
+		F03CEFA419F75F990071E7B3 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F03CEFA219F75F990071E7B3 /* MBProgressHUD.m */; };
 		F0A45FCD19E76B3800C6E607 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A45FCC19E76B3800C6E607 /* main.m */; };
 		F0A45FD019E76B3800C6E607 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A45FCF19E76B3800C6E607 /* AppDelegate.m */; };
 		F0A45FD319E76B3800C6E607 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A45FD219E76B3800C6E607 /* ViewController.m */; };
@@ -35,6 +37,10 @@
 /* Begin PBXFileReference section */
 		F02637B619E9257800626AF9 /* ALImageCutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALImageCutManager.h; sourceTree = "<group>"; };
 		F02637B719E9257800626AF9 /* ALImageCutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALImageCutManager.m; sourceTree = "<group>"; };
+		F03CEF9F19F75F990071E7B3 /* MBProgressHUD+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Utility.h"; sourceTree = "<group>"; };
+		F03CEFA019F75F990071E7B3 /* MBProgressHUD+Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Utility.m"; sourceTree = "<group>"; };
+		F03CEFA119F75F990071E7B3 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		F03CEFA219F75F990071E7B3 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		F0A45FC719E76B3800C6E607 /* imageCut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = imageCut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0A45FCB19E76B3800C6E607 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F0A45FCC19E76B3800C6E607 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -94,9 +100,29 @@
 			path = Class;
 			sourceTree = "<group>";
 		};
+		F03CEF9D19F75F0A0071E7B3 /* OtherClass */ = {
+			isa = PBXGroup;
+			children = (
+				F03CEF9E19F75F990071E7B3 /* MBProgressHUD */,
+			);
+			path = OtherClass;
+			sourceTree = "<group>";
+		};
+		F03CEF9E19F75F990071E7B3 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				F03CEF9F19F75F990071E7B3 /* MBProgressHUD+Utility.h */,
+				F03CEFA019F75F990071E7B3 /* MBProgressHUD+Utility.m */,
+				F03CEFA119F75F990071E7B3 /* MBProgressHUD.h */,
+				F03CEFA219F75F990071E7B3 /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 		F0A45FBE19E76B3800C6E607 = {
 			isa = PBXGroup;
 			children = (
+				F03CEF9D19F75F0A0071E7B3 /* OtherClass */,
 				F0A45FF019E76D5B00C6E607 /* MobileCoreServices.framework */,
 				F02637B519E9247600626AF9 /* Class */,
 				F0A45FC919E76B3800C6E607 /* imageCut */,
@@ -259,8 +285,10 @@
 				F0A45FD319E76B3800C6E607 /* ViewController.m in Sources */,
 				F0CF78A319F10B6800069E79 /* ALCutCollectionViewCell.m in Sources */,
 				F0CF78AD19F10C2400069E79 /* ALPlatformCollectionViewCell.m in Sources */,
+				F03CEFA419F75F990071E7B3 /* MBProgressHUD.m in Sources */,
 				F02637B819E9257800626AF9 /* ALImageCutManager.m in Sources */,
 				F0A45FD019E76B3800C6E607 /* AppDelegate.m in Sources */,
+				F03CEFA319F75F990071E7B3 /* MBProgressHUD+Utility.m in Sources */,
 				F0A45FCD19E76B3800C6E607 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

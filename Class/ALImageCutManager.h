@@ -10,7 +10,18 @@
 #import <UIKit/UIKit.h>
 #import "ALTools.h"
 
+typedef NS_ENUM(NSUInteger, kImageCutStatus){
+    kImageCutBegin,
+    kImageCutCutSuccess,
+    kImageCutSave,
+    kImageCutSuccess
+};
+
+typedef void(^ImageCutStatusBlock)(kImageCutStatus status, NSInteger allCount, NSInteger currentIndex);
+
 @interface ALImageCutManager : NSObject
-@property(nonatomic, assign) BOOL enableSaveToAlbum;//默认是YES
-- (void)cut:(UIImage *)image with:(kImageCutType)type;
+//默认是YES
+@property(nonatomic, assign) BOOL enableSaveToAlbum;
+@property(nonatomic, copy) ImageCutStatusBlock progressBlcok;
+- (void)cut:(UIImage *)image Type:(kImageCutType)cutType Platform:(kPlatformType)platformType;
 @end

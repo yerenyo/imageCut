@@ -9,7 +9,7 @@
 #import "ALImageCutManager.h"
 @interface ALImageCutManager()
 @property(nonatomic, strong) NSMutableArray *imageList;
-
+@property(nonatomic, assign) NSInteger cutNumber;
 @end
 
 @implementation ALImageCutManager
@@ -35,6 +35,9 @@
 }
 
 -(void) saveNext:(UIImage *)image{
+    if (self.progressBlcok) {
+        self.progressBlcok(kImageCutSave, self.cutNumber, self.cutNumber-self.imageList.count);
+    }
     UIImageWriteToSavedPhotosAlbum(image, self, @selector(savedPhotoImage:didFinishSavingWithError:contextInfo:), nil);
 }
 
@@ -49,18 +52,24 @@
     }else{
         NSLog(@"\nover");
     }
-    
 }
 
-- (void)cut:(UIImage *)image with:(kImageCutType)type{
-    NSLog(@"\n begin");
-    NSInteger row, column;
-    if (type%3==0) {
-        column = 3;
-        row = type/3;
-    }else if(type%2==0){
-        column = 2;
-        row = type/2;
+- (void)cut:(UIImage *)image Type:(kImageCutType)cutType Platform:(kPlatformType)platformType{
+    switch (platformType) {
+        case kPlatformWeixin:
+        case kPlatformWeibo:{
+            [self cut3Column:image with:cutType];
+        }break;
+            
+        default:
+            break;
+    }
+}
+
+- (void)cutImage:(UIImage *)image Row:(NSInteger)row Colume:(NSInteger)column{
+    self.cutNumber = row*column;
+    if (self.progressBlcok) {
+        self.progressBlcok(kImageCutBegin, row*column, 0);
     }
     CGFloat width = image.size.width;
     CGFloat height = image.size.height;
@@ -73,13 +82,13 @@
         for (int j=0; j<column; j++) {
             x = j*spaceWidth;
             [rects addObject:[NSValue valueWithCGRect:CGRectMake(-x, -y, spaceWidth, spaceHeight)]];
-//           NSLog(@"\nrow:%d column:%d    :%@", i, j ,[NSValue valueWithCGRect:rects[i*j]]);
+            //           NSLog(@"\nrow:%d column:%d    :%@", i, j ,[NSValue valueWithCGRect:rects[i*j]]);
         }
     }
     [self.imageList removeAllObjects];
     NSLog(@"\nimage cut begin");
     for (int i=0; i<rects.count; i++) {
-
+        
         CGRect rect = [rects[i] CGRectValue];
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, rect.size.width, rect.size.height)];
         view.clipsToBounds = YES;
@@ -89,9 +98,33 @@
         UIImage *image = [self captureView:view];
         [self.imageList addObject:image];
     }
+    if (self.progressBlcok) {
+        self.progressBlcok(kImageCutCutSuccess, row*column, 0);
+    }
     NSLog(@"\nimage cut end");
     if(self.enableSaveToAlbum){
         [self saveNext:self.imageList[0]];
     }
 }
+
+- (void)cut4Column:(UIImage *)image with:(kImageCutType)type{
+    NSLog(@"\n begin");
+    NSInteger column = 4;
+    NSInteger row = type/column;
+    [self cutImage:image Row:row Colume:column];
+}
+
+- (void)cut3Column:(UIImage *)image with:(kImageCutType)type{
+    NSLog(@"\n begin");
+    NSInteger row, column;
+    if (type%3==0) {
+        column = 3;
+        row = type/3;
+    }else if(type%2==0){
+        column = 2;
+        row = type/2;
+    }
+    [self cutImage:image Row:row Colume:column];
+}
+
 @end
