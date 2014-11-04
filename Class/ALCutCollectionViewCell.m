@@ -22,21 +22,30 @@ const NSString *keyCutType = @"cutType";
 
 - (void)awakeFromNib {
     // Initialization code
+    self.layer.cornerRadius = 16.0;
+    self.layer.masksToBounds = YES;
     [self.cellectionView registerNib:[UINib nibWithNibName:@"ALPlatformCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"ALPlatformCollectionViewCell"];
     self.cellectionView.dataSource = self;
     self.cellectionView.delegate = self;
-    
 }
 
 - (void)setPlatormObject:(ALPlatormObject *)platormObject{
     if (_platormObject != platormObject) {
         _platormObject = platormObject;
+        self.backgroundColor = platormObject.bgColor;
         self.platformImageView.image = [UIImage imageNamed:platormObject.platormLogoImageName];
         self.platformLable.text = platormObject.platormName;
         [self.cellectionView reloadData];
     }
 }
 
+- (void)setItemSize:(CGSize)itemSize{
+    _itemSize = itemSize;
+    UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)self.cellectionView.collectionViewLayout;
+    if (flowLayout && [flowLayout isKindOfClass:[UICollectionViewFlowLayout class]]) {
+        flowLayout.itemSize = itemSize;
+    }
+}
 #pragma mark = datasource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return self.platormObject.cutObjects.count;
@@ -47,6 +56,7 @@ const NSString *keyCutType = @"cutType";
     static NSString *cellId = @"ALPlatformCollectionViewCell";
     ALPlatformCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
     cell.cutObject = self.platormObject.cutObjects[indexPath.row];
+    cell.lineHidden = indexPath.row == 0;
     return cell;
 }
 

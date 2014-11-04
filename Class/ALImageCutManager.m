@@ -50,17 +50,23 @@
     if (self.imageList.count>0) {
         [self saveNext:self.imageList[0]];
     }else{
+        if (self.progressBlcok) {
+            self.progressBlcok(kImageCutSuccess, self.cutNumber, self.cutNumber-self.imageList.count);
+        }
         NSLog(@"\nover");
     }
 }
 
-- (void)cut:(UIImage *)image Type:(kImageCutType)cutType Platform:(kPlatformType)platformType{
+- (void)cut:(UIImage *)image Type:(NSInteger)cutNumber Platform:(kPlatformType)platformType{
     switch (platformType) {
         case kPlatformWeixin:
         case kPlatformWeibo:{
-            [self cut3Column:image with:cutType];
-        }break;
             
+            [self cut3Column:image with:cutNumber];
+        }break;
+        case kPlatformMomo:{
+            [self cut4Column:image with:cutNumber];
+        }break;
         default:
             break;
     }
@@ -107,22 +113,22 @@
     }
 }
 
-- (void)cut4Column:(UIImage *)image with:(kImageCutType)type{
+- (void)cut4Column:(UIImage *)image with:(NSInteger)cutNumber{
     NSLog(@"\n begin");
     NSInteger column = 4;
-    NSInteger row = type/column;
+    NSInteger row = cutNumber/column;
     [self cutImage:image Row:row Colume:column];
 }
 
-- (void)cut3Column:(UIImage *)image with:(kImageCutType)type{
+- (void)cut3Column:(UIImage *)image with:(NSInteger)cutNumber{
     NSLog(@"\n begin");
     NSInteger row, column;
-    if (type%3==0) {
+    if (cutNumber%3==0) {
         column = 3;
-        row = type/3;
-    }else if(type%2==0){
+        row = cutNumber/3;
+    }else if(cutNumber%2==0){
         column = 2;
-        row = type/2;
+        row = cutNumber/2;
     }
     [self cutImage:image Row:row Colume:column];
 }

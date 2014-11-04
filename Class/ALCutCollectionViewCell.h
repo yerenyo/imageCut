@@ -11,5 +11,6 @@
 
 @interface ALCutCollectionViewCell : UICollectionViewCell
 @property(nonatomic, strong) ALPlatormObject *platormObject;
+@property(nonatomic, assign) CGSize itemSize;
 @property(nonatomic, copy) void(^SelectCellBlock)(ALPlatormObject *platormObject, ALCutObject *cutObject);
 @end

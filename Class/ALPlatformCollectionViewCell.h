@@ -12,5 +12,5 @@
 @interface ALPlatformCollectionViewCell : UICollectionViewCell
 
 @property(nonatomic, strong) ALCutObject *cutObject;
-
+@property(nonatomic, assign) BOOL lineHidden;
 @end

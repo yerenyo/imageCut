@@ -23,5 +23,5 @@ typedef void(^ImageCutStatusBlock)(kImageCutStatus status, NSInteger allCount, N
 //默认是YES
 @property(nonatomic, assign) BOOL enableSaveToAlbum;
 @property(nonatomic, copy) ImageCutStatusBlock progressBlcok;
-- (void)cut:(UIImage *)image Type:(kImageCutType)cutType Platform:(kPlatformType)platformType;
+- (void)cut:(UIImage *)image Type:(NSInteger)cutNumber Platform:(kPlatformType)platformType;
 @end

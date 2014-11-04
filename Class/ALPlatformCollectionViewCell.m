@@ -11,16 +11,18 @@
 @interface ALPlatformCollectionViewCell()
 @property (weak, nonatomic) IBOutlet UIImageView *cutTypeImageview;
 @property (weak, nonatomic) IBOutlet UILabel *cutTypeLable;
+@property (weak, nonatomic) IBOutlet UIView *lineView;
 
 @end
 @implementation ALPlatformCollectionViewCell
 
 - (void)awakeFromNib {
     // Initialization code
-    self.contentView.layer.cornerRadius = 2;
-    self.contentView.layer.masksToBounds = YES;
 }
-
+- (void)setLineHidden:(BOOL)lineHidden{
+    _lineHidden = lineHidden;
+    self.lineView.hidden = lineHidden;
+}
 - (void)setCutObject:(ALCutObject *)cutObject{
     if (_cutObject != cutObject) {
         _cutObject = cutObject;

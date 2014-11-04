@@ -9,13 +9,13 @@
 #import "ALTools.h"
 #define kPlatormLogoImageName @[@"Wechat", @"Momo", @"Weibo"]
 #define kPlatormName @[@"朋友圈", @"陌陌相册", @"微博"]
-#define kCutPlatormImage @[@[@"w-9",@"w-6",@"w-4",@"w-3",@"w-2"],@[@"m-8",@"m-4"],@[@"w-9",@"w-6",@"w-4",@"w-3",@"w-2"]]
-#define kCutPlatormText @[@[@"3×3张",@"3×2张",@"2×2张",@"3×1张",@"2×1张"],@[@"4×2张",@"4×1张"],@[@"3×3张",@"3×2张",@"2×2张",@"3×1张",@"2×1张"]]
+#define kCutPlatormImage @[@[@"w-9",@"w-6",@"w-3",@"w-4",@"w-2"],@[@"m-8",@"m-4"],@[@"wb-9",@"wb-6",@"wb-3",@"wb-4",@"wb-2"]]
+#define kCutPlatormText @[@[@"3×3张",@"3×2张",@"3×1张",@"2×2张",@"2×1张"],@[@"4×2张",@"4×1张"],@[@"3×3张",@"3×2张",@"3×1张",@"2×2张",@"2×1张"]]
 
-#define kCutNumber @[@[@"9",@"6",@"4",@"3",@"2"],@[@"8",@"4"],@[@"9",@"6",@"4",@"3",@"2"]]
+#define kCutNumber @[@[@"9",@"6",@"3",@"4",@"2"],@[@"8",@"4"],@[@"9",@"6",@"3",@"4",@"2"]]
 
-#define kPlatormCutTypes @[@[@(kImageCutNine),@(kImageCutSix),@(kImageCutFour),@(kImageCutThree),@(kImageCutTwo)],@[@(kImageCutEight),@(kImageCutFour)],@[@(kImageCutNine),@(kImageCutSix),@(kImageCutFour),@(kImageCutThree),@(kImageCutTwo)]]
-
+#define kPlatormCutTypes @[@[@(kImageCutNine),@(kImageCutSix),@(kImageCutThree),@(kImageCutFour),@(kImageCutTwo)],@[@(kImageCutEight),@(kImageCutFour)],@[@(kImageCutNine),@(kImageCutSix),@(kImageCutThree),@(kImageCutFour),@(kImageCutTwo)]]
+#define kPlatormBGColors @[kColorFromRGB(78, 223, 87), kColorFromRGB(93, 160, 225),kColorFromRGB(252, 96, 114)]
 
 @implementation ALCutObject
 
@@ -37,6 +37,7 @@
         platorm.platormName = kPlatormName[i];
         platorm.platformType = (kPlatformType)i;
         platorm.platormLogoImageName = kPlatormLogoImageName[i];
+        platorm.bgColor = kPlatormBGColors[i];
         NSMutableArray *cuts = [NSMutableArray arrayWithCapacity:6];
         NSArray *cutImages = kCutPlatormImage[i];
         NSArray *cutTexts = kCutPlatormText[i];

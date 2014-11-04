@@ -43,7 +43,7 @@
                 [MBProgressHUD showLoading:[NSString stringWithFormat:@"图片保存到相册中--%ld/%ld", currentIndex, allCount]];
             }break;
             case kImageCutSuccess:{
-                [MBProgressHUD showLoading:@"保存完成"];
+                [MBProgressHUD showText:@"保存完成"];
             }break;
             default:
                 break;
@@ -99,6 +99,9 @@
     static NSString *cellId = @"ALCutCollectionViewCell";
     ALCutCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
     cell.platormObject = self.dataArray[indexPath.row];
+    if (1==indexPath.row) {
+        cell.itemSize = CGSizeMake(152, 150);
+    }
     __weak ViewController *weakSelf = self;
     [cell setSelectCellBlock:^(ALPlatormObject *platormObject, ALCutObject *cutObject) {
         weakSelf.selectCutObject = cutObject;
@@ -133,7 +136,7 @@
         }
         NSData *imageData = UIImageJPEGRepresentation(img, 1.0);
         UIImage *image = [UIImage imageWithData:imageData scale:1.0];
-        [self.imageCutManager cut:image Type:self.selectCutObject.cutType Platform:self.selectPlatormObject.platformType];
+        [self.imageCutManager cut:image Type:self.selectCutObject.cutNumber Platform:self.selectPlatormObject.platformType];
     }
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
