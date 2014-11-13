@@ -22,8 +22,10 @@ const NSString *keyCutType = @"cutType";
 
 - (void)awakeFromNib {
     // Initialization code
-    self.layer.cornerRadius = 16.0;
-    self.layer.masksToBounds = YES;
+    if ([UIScreen mainScreen].scale<2.5) {
+        self.layer.cornerRadius = 8.0;
+        self.layer.masksToBounds = YES;
+    }
     [self.cellectionView registerNib:[UINib nibWithNibName:@"ALPlatformCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"ALPlatformCollectionViewCell"];
     self.cellectionView.dataSource = self;
     self.cellectionView.delegate = self;

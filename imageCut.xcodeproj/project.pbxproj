@@ -229,6 +229,7 @@
 				TargetAttributes = {
 					F0A45FC619E76B3800C6E607 = {
 						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = UF54W4LE7W;
 					};
 					F0A45FDF19E76B3800C6E607 = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -404,11 +405,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = imageCut/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3b489d28-cfd5-420e-af72-8a1451885d1e";
+				PROVISIONING_PROFILE = "2d7c8ae7-7d61-451f-bf0c-5b034d7c8904";
 				VALIDATE_PRODUCT = NO;
 			};
 			name = Debug;
@@ -418,11 +421,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Gu Jinyou (UF54W4LE7W)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Gu Jinyou (UF54W4LE7W)";
 				INFOPLIST_FILE = imageCut/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3b489d28-cfd5-420e-af72-8a1451885d1e";
+				PROVISIONING_PROFILE = "2d7c8ae7-7d61-451f-bf0c-5b034d7c8904";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

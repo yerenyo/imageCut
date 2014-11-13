@@ -34,13 +34,13 @@
     self.imageCutManager.progressBlcok = ^(kImageCutStatus status, NSInteger allCount, NSInteger currentIndex){
         switch (status) {
             case kImageCutBegin:{
-                [MBProgressHUD showLoading:@"图片开始分割"];
+                [MBProgressHUD showLoading:@"分图开始"];
             }break;
             case kImageCutCutSuccess:{
-                [MBProgressHUD showLoading:@"图片分割成功"];
+                [MBProgressHUD showLoading:@"分图完成"];
             }break;
             case kImageCutSave:{
-                [MBProgressHUD showLoading:[NSString stringWithFormat:@"图片保存到相册中--%ld/%ld", currentIndex, allCount]];
+                [MBProgressHUD showLoading:[NSString stringWithFormat:@"保存到相册--%ld/%ld", currentIndex, allCount]];
             }break;
             case kImageCutSuccess:{
                 [MBProgressHUD showText:@"保存完成"];
@@ -51,6 +51,11 @@
     };
 }
 
+- (void)updateViewConstraints{
+    [super updateViewConstraints];
+    UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;
+    layout.itemSize = CGSizeMake([UIScreen mainScreen].bounds.size.width-16, 200);
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated
@@ -100,7 +105,7 @@
     ALCutCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
     cell.platormObject = self.dataArray[indexPath.row];
     if (1==indexPath.row) {
-        cell.itemSize = CGSizeMake(152, 150);
+        cell.itemSize = CGSizeMake(([UIScreen mainScreen].bounds.size.width-16)/2.0, 150);
     }
     __weak ViewController *weakSelf = self;
     [cell setSelectCellBlock:^(ALPlatormObject *platormObject, ALCutObject *cutObject) {
